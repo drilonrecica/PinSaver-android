@@ -37,7 +37,8 @@ deploy:
     secure: htwmnCrDUrtT6VMa5KhAaCq+6CScnSSl1p9OX2Z0v400OM3SbkEfTsPnJ/0KlzdIHuL7H7Ghf0mZa2DKgEficBCK/PLyHxmiD5beg3+IRIa6ji3VY6ahAAsSwt0Q93t6AN16HOTjpKufSiP938Trc1gN7Kk0o9mxD7aYKbbLOBPjIMEMR9HM+0G1S/uVNt7Vvl/XpNprwOc6q+5qoDotpJylrApotMP4NSoBDiNKSfvHXbS9M9ovDTmwpEWWwbHaZSIDBn3FIMIoMwjHWFAO+QraU406xF311YnDzM6z07bw7YsW1VhDdvKWcS/PLx2FH5YKFvH5QsWbI5JzGRmhCNbUOhJr0LuUK1W7nBGUCvx20rwtXRjz+d7oxXtJROFtbs7BvEd93bmT3I7Ldnalz+vb4h0BF1r+8bp1ZvQCbBaooqjI422FeE3Xd5QqWAtQmZdAQcOp1UiGS4zYytqIJaQH/mNP9w0fsRdXwdT+BLzapZf8w5PQCTXbGqtIAiGHFz/cpgQHsYVvLSmSyM5ATzSZOn91Wm+C4DUxFjxUon4I0mU/M1trDFmf0Fa5GGGPTeDLCmTNU+VB6n9fCGIPSt7/4jKQN1Zw0Hg0BijsCPMRJvYWfeZ5Khj/Gr2zBiVG/Oy5tSJzXtCTpwVVA/5sj8/MfIeaOkCugJiEzmCkHKM=
   file: app/build/outputs/apk/app-debug.apk
   skip_cleanup: true
+  overwrite: true
   on:
     tags: true
     repo: drilonreqica/PinSaver
-    branch: master
+    all_branches: true
