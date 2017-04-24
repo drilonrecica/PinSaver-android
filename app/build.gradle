@@ -1,14 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
+    lintOptions {
+        abortOnError false
+    }
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.reqica.drilon.pinsaver"
         minSdkVersion 18
         targetSdkVersion 25
-        versionCode 1
-        versionName "0.0.1"
+        versionCode versionCode
+        versionName "${versionName}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
