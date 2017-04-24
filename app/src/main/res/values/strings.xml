@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PinSaver</string>
+    <string name="save">Save</string>
+    <string name="pin">Pin</string>
+    <string name="card">Card</string>
+    <string name="message_authenticate">Authenticate with your fingerprint!</string>
+    <string name="message_no_hardware">No Fingerprint Hardware on this device!</string>
+    <string name="message_no_fingerprint">No Fingerprints saved on this device!</string>
+    <string name="message_failure_authenticating">Could not Authenticate. Reason:   %1$s</string>
+    <string name="message_success_authentication">Successfully Authenticated!</string>
+    <string name="message_restart_activity">Restart Activity ?</string>
+    <string name="restart">Restart</string>
+    <string name="error">Error</string>
+    <string name="delete">Delete</string>
+    <string name="new_entry">New Entry</string>
+    <string name="fields_cannot_be_empty">Fields cannot be empty!</string>
+    <string name="no_entries">No Entries!</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/secureGreen</color>
+    <color name="colorPrimaryDark">@color/darkSecureGreen</color>
+    <color name="colorAccent">@color/warningRed</color>
+    <color name="secureGreen">#4CAF50</color>
+    <color name="darkSecureGreen">#2E7D32</color>
+    <color name="warningRed">#F44336</color>
+</resources>
