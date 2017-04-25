@@ -19,18 +19,20 @@ public class PinActivity extends BaseActivity {
     private static final String KEY_NULL = "null";
     private static final String KEY_EMPTY = "";
     private static final String KEY_DIVIDER = "±";
+    private Button saveButton;
+    private Button deleteButton;
+    private EditText cardEditText;
+    private TextInputEditText pinEditText;
+    private EntryModel entryModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
 
-        final EntryModel entryModel = getIntent().getParcelableExtra(MainActivity.KEY_ENTRY);
+        entryModel = getIntent().getParcelableExtra(MainActivity.KEY_ENTRY);
 
-        final EditText cardEditText = (EditText) findViewById(R.id.card_new_edit_text);
-        final TextInputEditText pinEditText = (TextInputEditText) findViewById(R.id.pin_new_edit_text);
-        Button saveButton = (Button) findViewById(R.id.save_button);
-        Button deleteButton = (Button) findViewById(R.id.delete_button);
+        initViews();
 
         String cardName = entryModel != null ? entryModel.getCard() : KEY_EMPTY;
 
@@ -43,6 +45,17 @@ public class PinActivity extends BaseActivity {
         cardEditText.setText(cardName);
         pinEditText.setText(entryModel.getPin());
 
+        setOnClickListeners();
+    }
+
+    private void initViews() {
+        cardEditText = (EditText) findViewById(R.id.card_new_edit_text);
+        pinEditText = (TextInputEditText) findViewById(R.id.pin_new_edit_text);
+        saveButton = (Button) findViewById(R.id.save_button);
+        deleteButton = (Button) findViewById(R.id.delete_button);
+    }
+
+    private void setOnClickListeners() {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +80,6 @@ public class PinActivity extends BaseActivity {
                 finish();
             }
         });
-
     }
 
     @Override
