@@ -16,23 +16,24 @@ import android.widget.Toast;
 import com.github.ajalt.reprint.core.AuthenticationFailureReason;
 import com.github.ajalt.reprint.core.AuthenticationListener;
 import com.github.ajalt.reprint.core.Reprint;
-import com.reqica.drilon.pinsaver.adapter.EntryAdapter;
-import com.reqica.drilon.pinsaver.model.EntryModel;
 import com.reqica.drilon.pinsaver.EntrySaverTool;
 import com.reqica.drilon.pinsaver.R;
+import com.reqica.drilon.pinsaver.adapter.EntryAdapter;
+import com.reqica.drilon.pinsaver.model.EntryModel;
 
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
     public static final String KEY_ENTRY = "key_entry";
     private static final String KEY_DIVIDER = "±";
+    private ListView entryListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView entryListView = (ListView) findViewById(R.id.entry_list_view);
+        entryListView = (ListView) findViewById(R.id.entry_list_view);
         FloatingActionButton addButton = (FloatingActionButton) findViewById(R.id.add_button);
 
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +44,12 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+        setListAdapter();
+
+        setListOnItemClickListener();
+    }
+
+    private void setListAdapter() {
         String[] entries = EntrySaverTool.getEntries(getApplicationContext());
 
         if (entries.length > 0) {
@@ -65,7 +72,9 @@ public class MainActivity extends BaseActivity {
             EntryAdapter entryAdapter = new EntryAdapter(getApplicationContext(), articleList);
             entryListView.setAdapter(entryAdapter);
         }
+    }
 
+    private void setListOnItemClickListener() {
         entryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> parent, View view, final int position, long id) {
