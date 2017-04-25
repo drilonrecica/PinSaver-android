@@ -2,9 +2,7 @@ package com.reqica.drilon.pinsaver.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.view.Window;
@@ -121,23 +119,5 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-    }
-
-    private void screenSession() {
-        // If the screen is off then the device has been locked
-        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        boolean isScreenOn;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
-            isScreenOn = powerManager.isInteractive();
-        } else {
-            isScreenOn = powerManager.isScreenOn();
-        }
-
-        if (!isScreenOn) {
-            // The screen has been locked
-            // do stuff...
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }
     }
 }

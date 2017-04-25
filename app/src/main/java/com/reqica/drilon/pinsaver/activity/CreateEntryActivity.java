@@ -1,9 +1,7 @@
 package com.reqica.drilon.pinsaver.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
@@ -57,23 +55,5 @@ public class CreateEntryActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         screenSession();
-    }
-
-    private void screenSession() {
-        // If the screen is off then the device has been locked
-        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        boolean isScreenOn;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
-            isScreenOn = powerManager.isInteractive();
-        } else {
-            isScreenOn = powerManager.isScreenOn();
-        }
-
-        if (!isScreenOn) {
-            // The screen has been locked
-            // do stuff...
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }
     }
 }
